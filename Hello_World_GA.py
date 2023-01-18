@@ -1,5 +1,6 @@
 import random
 import string
+import time
 
 population_size = 30
 population = []
@@ -15,6 +16,8 @@ def main():
     global best_fit
     gen_count = 0
 
+    start_time = time.time()
+
     init_pop(population_size, input_string, population)
 
     # init new pop just for ease of working with the list
@@ -28,8 +31,10 @@ def main():
         gen_count += 1
 
         population = new_population
-        print(f"| {population[0]} | Generation: {gen_count} |")
-    print(f"| {goal_found} | Solution Found !|")
+        print(f"| {population[0]} | Generation: {gen_count}")
+
+    end_time = time.time() - start_time
+    print(f"| {goal_found} | Solution found in {end_time} seconds ! ")
 
 
 # generate random string with digits, letters, spaces, and special characters
